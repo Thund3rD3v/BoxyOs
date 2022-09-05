@@ -9,8 +9,6 @@ import { WindowsContext } from "./Contexts/WindowsContext";
 function App() {
   const [openedWindows, setOpenedWindows] = useState([]);
 
-  console.log(openedWindows);
-
   return (
     <div className="App">
       <WindowsContext.Provider value={{ openedWindows, setOpenedWindows }}>

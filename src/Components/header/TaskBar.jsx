@@ -4,7 +4,9 @@ import {
   faCalculator,
   faGears,
   faFlask,
+  faCube,
   faChessBoard,
+  faVideo,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { AnimatePresence } from "framer-motion";
@@ -21,7 +23,7 @@ export default function TaskBar() {
       let newArray = [...prev];
 
       let index = newArray.findIndex(function (window) {
-        return window.name === name;
+        return window === name;
       });
       if (index !== -1) newArray.splice(index, 1);
 
@@ -33,7 +35,7 @@ export default function TaskBar() {
     <div className="flex gap-2">
       <AnimatePresence>
         {openedWindows.map((window) => {
-          if (window.name === "Calculator") {
+          if (window === "Calculator") {
             return (
               <TaskBarItem
                 key="Calculator"
@@ -43,7 +45,7 @@ export default function TaskBar() {
               />
             );
           }
-          if (window.name === "TestWindow") {
+          if (window === "TestWindow") {
             return (
               <TaskBarItem
                 key="TestWindow"
@@ -53,7 +55,7 @@ export default function TaskBar() {
               />
             );
           }
-          if (window.name === "Settings") {
+          if (window === "Settings") {
             return (
               <TaskBarItem
                 key="Settings"
@@ -63,7 +65,7 @@ export default function TaskBar() {
               />
             );
           }
-          if (window.name === "Chess") {
+          if (window === "Chess") {
             return (
               <TaskBarItem
                 key="Chess"
@@ -74,12 +76,23 @@ export default function TaskBar() {
             );
           }
 
+          if (window === "Video") {
+            return (
+              <TaskBarItem
+                key="Video"
+                handleClose={handleClose}
+                name="Video"
+                icon={faVideo}
+              />
+            );
+          }
+
           return (
             <TaskBarItem
               key="Minecraft"
               handleClose={handleClose}
               name="Minecraft"
-              icon={faGears}
+              icon={faCube}
             />
           );
         })}

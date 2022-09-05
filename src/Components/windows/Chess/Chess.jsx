@@ -1,6 +1,9 @@
+import { memo } from "react";
 import WindowLayout from "../../ui/WindowLayout";
 
-export default function Chess() {
+function Chess({ active }) {
+  if (!active) return;
+
   return (
     <WindowLayout title="Chess" name="Chess" size={[640, 360]}>
       <div className="h-full p-1">
@@ -14,3 +17,5 @@ export default function Chess() {
     </WindowLayout>
   );
 }
+
+export default memo(Chess);

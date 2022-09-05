@@ -15,7 +15,7 @@ export default function WindowLayout({ title, name, size, children }) {
       let newArray = [...prev];
 
       let index = newArray.findIndex(function (window) {
-        return window.name === name;
+        return window === name;
       });
       if (index !== -1) newArray.splice(index, 1);
 

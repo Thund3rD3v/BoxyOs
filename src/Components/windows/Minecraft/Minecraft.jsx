@@ -1,6 +1,8 @@
 import WindowLayout from "../../ui/WindowLayout";
 
-export default function Minecraft() {
+function Minecraft({ active }) {
+  if (!active) return;
+
   return (
     <WindowLayout title="Minecraft" name="Minecraft" size={[640, 360]}>
       <div className="h-full p-1">
@@ -14,3 +16,5 @@ export default function Minecraft() {
     </WindowLayout>
   );
 }
+
+export default Minecraft;

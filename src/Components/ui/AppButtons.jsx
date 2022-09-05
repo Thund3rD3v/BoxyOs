@@ -1,9 +1,4 @@
 import React, { useContext } from "react";
-import Calculator from "../windows/Calculator/Calculator";
-import TestWindow from "../windows/TestWindow/TestWindow";
-import Minecraft from "../windows/Minecraft/Minecraft";
-import Settings from "../windows/Settings/Settings";
-import Chess from "../windows/Chess/Chess";
 
 // Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,8 +6,8 @@ import {
   faCalculator,
   faFlask,
   faCube,
-  faGears,
   faChessBoard,
+  faVideo,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Context
@@ -27,11 +22,11 @@ export default function AppButtons() {
         <button
           className="text-center hover:opacity-80 flex flex-col items-center justify-center"
           onDoubleClick={() => {
-            if (openedWindows.includes(Calculator)) {
+            if (openedWindows.includes("Calculator")) {
               return;
             }
             setOpenedWindows((prev) => {
-              return [...prev, Calculator];
+              return [...prev, "Calculator"];
             });
           }}
         >
@@ -41,11 +36,11 @@ export default function AppButtons() {
         <button
           className="text-center hover:opacity-80 flex flex-col items-center justify-center"
           onDoubleClick={() => {
-            if (openedWindows.includes(TestWindow)) {
+            if (openedWindows.includes("TestWindow")) {
               return;
             }
             setOpenedWindows((prev) => {
-              return [...prev, TestWindow];
+              return [...prev, "TestWindow"];
             });
           }}
         >
@@ -55,11 +50,25 @@ export default function AppButtons() {
         <button
           className="text-center hover:opacity-80 flex flex-col items-center justify-center"
           onDoubleClick={() => {
-            if (openedWindows.includes(Minecraft)) {
+            if (openedWindows.includes("Chess")) {
               return;
             }
             setOpenedWindows((prev) => {
-              return [...prev, Minecraft];
+              return [...prev, "Chess"];
+            });
+          }}
+        >
+          <FontAwesomeIcon icon={faChessBoard} color="white" size="4x" />
+          <span className="text-white text-md">Chess</span>
+        </button>
+        <button
+          className="text-center hover:opacity-80 flex flex-col items-center justify-center"
+          onDoubleClick={() => {
+            if (openedWindows.includes("Minecraft")) {
+              return;
+            }
+            setOpenedWindows((prev) => {
+              return [...prev, "Minecraft"];
             });
           }}
         >
@@ -69,32 +78,16 @@ export default function AppButtons() {
         <button
           className="text-center hover:opacity-80 flex flex-col items-center justify-center"
           onDoubleClick={() => {
-            if (openedWindows.includes(Chess)) {
+            if (openedWindows.includes("Video")) {
               return;
             }
             setOpenedWindows((prev) => {
-              return [...prev, Chess];
+              return [...prev, "Video"];
             });
           }}
         >
-          <FontAwesomeIcon icon={faChessBoard} color="white" size="4x" />
-          <span className="text-white text-md">Chess</span>
-        </button>
-      </div>
-      <div className="flex flex-col items-center gap-6">
-        <button
-          className="text-center hover:opacity-80 flex flex-col items-center justify-center"
-          onDoubleClick={() => {
-            if (openedWindows.includes(Settings)) {
-              return;
-            }
-            setOpenedWindows((prev) => {
-              return [...prev, Settings];
-            });
-          }}
-        >
-          <FontAwesomeIcon icon={faGears} color="white" size="4x" />
-          <span className="text-white text-md">Settings</span>
+          <FontAwesomeIcon icon={faVideo} color="white" size="4x" />
+          <span className="text-white text-md">Video</span>
         </button>
       </div>
     </div>

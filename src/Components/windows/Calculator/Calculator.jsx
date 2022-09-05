@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import WindowLayout from "../../ui/WindowLayout";
 import CalculatorButton from "./CalculatorButton";
 
-export default function Calculator() {
+function Calculator({ active }) {
   const [calculatorValue, setCalculatorValue] = useState("");
+
+  if (!active) return;
 
   function handleClick(ev) {
     if (ev.target.innerText === "=") {
@@ -23,7 +25,11 @@ export default function Calculator() {
   return (
     <WindowLayout title="Calculator" name="Calculator" size={[400, 300]}>
       <div className="p-2 h-full">
-        <input className="w-full bg-gray-900 mb-1" value={calculatorValue} />
+        <input
+          className="w-full bg-gray-900 mb-1"
+          value={calculatorValue}
+          disabled
+        />
         <div className="flex flex-col gap-1">
           <div className="flex gap-1">
             <CalculatorButton handleClick={handleClick}>{"("}</CalculatorButton>
@@ -60,3 +66,5 @@ export default function Calculator() {
     </WindowLayout>
   );
 }
+
+export default Calculator;
