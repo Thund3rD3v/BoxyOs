@@ -75,6 +75,8 @@ export default function AppButtons() {
           <FontAwesomeIcon icon={faCube} color="white" size="4x" />
           <span className="text-white text-md">Minecraft</span>
         </button>
+      </div>
+      <div className="flex flex-col items-center gap-6">
         <button
           className="text-center hover:opacity-80 flex flex-col items-center justify-center"
           onDoubleClick={() => {
@@ -86,7 +88,11 @@ export default function AppButtons() {
             });
           }}
         >
-          <FontAwesomeIcon icon={faVideo} color="white" size="4x" />
+          <FontAwesomeIcon
+            icon={faVideo}
+            className=" text-lime-500"
+            size="4x"
+          />
           <span className="text-white text-md">Video</span>
         </button>
       </div>
